@@ -828,7 +828,7 @@ uint256 static GetOrphanRoot(const CBlock* pblock)
 
 int64 static GetBlockValue(int nHeight, int64 nFees)
 {
-    int64 nSubsidy = 4 * COIN;
+    int64 nSubsidy = 10 * COIN;
 
 
     if(nHeight < 17280) // no block reward within the first 3 days
@@ -839,8 +839,8 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
     return nSubsidy + nFees;
 }
 
-static const int64 nTargetTimespan = 0.35 * 24 * 60 * 60; // Booncoin: 0.35 days
-static const int64 nTargetSpacing = 15; // Booncoin: 15 seconds
+static const int64 nTargetTimespan = 1 * 24 * 60 * 60; // Booncoin: 1 days
+static const int64 nTargetSpacing = 0.25 * 60 * 60; // Booncoin: 0.25 hours
 static const int64 nInterval = nTargetTimespan / nTargetSpacing;
 
 // Thanks: Balthazar for suggesting the following fix
@@ -2007,7 +2007,7 @@ bool LoadBlockIndex(bool fAllowNew)
             return false;
     
 	// Genesis block:
-	// block.nTime = 1366559428 
+	// block.nTime = 1389800000 
 	// block.nNonce = 2085386442 
 	// block.GetHash = 384b060671f4a93948e9c168216dadb0ca2fbc54aa11c86b0345b6af1c59b2f5
 	// CBlock(hash=384b060671f4a93948e9, PoW=00000951e146b0026411, ver=1,
@@ -2019,7 +2019,7 @@ bool LoadBlockIndex(bool fAllowNew)
 	// vMerkleTree: 5a2e19825b
         
         // Genesis block
-        const char* pszTimestamp = "todo: replace with something that ensures no premining took place";
+        const char* pszTimestamp = "Justin Beiber "Has Not Been Exonerated, Nor Has He Been Arrested"";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -2037,7 +2037,7 @@ bool LoadBlockIndex(bool fAllowNew)
 
         if (fTestNet)
         {
-            block.nTime    = 1366559428;
+            block.nTime    = 1389800000;
             block.nNonce   = 386402991;
         }
 
