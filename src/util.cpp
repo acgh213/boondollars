@@ -936,7 +936,7 @@ static std::string FormatException(std::exception* pex, const char* pszThread)
     char pszModule[MAX_PATH] = "";
     GetModuleFileNameA(NULL, pszModule, sizeof(pszModule));
 #else
-    const char* pszModule = "booncoin";
+    const char* pszModule = "boondollar";
 #endif
     if (pex)
         return strprintf(
@@ -972,13 +972,13 @@ void PrintExceptionContinue(std::exception* pex, const char* pszThread)
 boost::filesystem::path GetDefaultDataDir()
 {
     namespace fs = boost::filesystem;
-    // Windows < Vista: C:\Documents and Settings\Username\Application Data\Booncoin
-    // Windows >= Vista: C:\Users\Username\AppData\Roaming\Booncoin
-    // Mac: ~/Library/Application Support/Booncoin
-    // Unix: ~/.booncoin
+    // Windows < Vista: C:\Documents and Settings\Username\Application Data\Boondollar
+    // Windows >= Vista: C:\Users\Username\AppData\Roaming\Boondollar
+    // Mac: ~/Library/Application Support/Boondollar
+    // Unix: ~/.boondollar
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "Booncoin";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "Boondollar";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -990,10 +990,10 @@ boost::filesystem::path GetDefaultDataDir()
     // Mac
     pathRet /= "Library/Application Support";
     fs::create_directory(pathRet);
-    return pathRet / "Booncoin";
+    return pathRet / "Boondollar";
 #else
     // Unix
-    return pathRet / ".booncoin";
+    return pathRet / ".boondollar";
 #endif
 #endif
 }
@@ -1035,7 +1035,7 @@ const boost::filesystem::path &GetDataDir(bool fNetSpecific)
 
 boost::filesystem::path GetConfigFile()
 {
-    boost::filesystem::path pathConfigFile(GetArg("-conf", "booncoin.conf"));
+    boost::filesystem::path pathConfigFile(GetArg("-conf", "boondollar.conf"));
     if (!pathConfigFile.is_complete()) pathConfigFile = GetDataDir(false) / pathConfigFile;
     return pathConfigFile;
 }
@@ -1045,14 +1045,14 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
 {
     boost::filesystem::ifstream streamConfig(GetConfigFile());
     if (!streamConfig.good())
-        return; // No booncoin.conf file is OK
+        return; // No boondollar.conf file is OK
 
     set<string> setOptions;
     setOptions.insert("*");
 
     for (boost::program_options::detail::config_file_iterator it(streamConfig, setOptions), end; it != end; ++it)
     {
-        // Don't overwrite existing settings so command line settings override booncoin.conf
+        // Don't overwrite existing settings so command line settings override boondollar.conf
         string strKey = string("-") + it->string_key;
         if (mapSettingsRet.count(strKey) == 0)
         {
@@ -1066,7 +1066,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
 
 boost::filesystem::path GetPidFile()
 {
-    boost::filesystem::path pathPidFile(GetArg("-pid", "booncoin.pid"));
+    boost::filesystem::path pathPidFile(GetArg("-pid", "boondollar.pid"));
     if (!pathPidFile.is_complete()) pathPidFile = GetDataDir() / pathPidFile;
     return pathPidFile;
 }
@@ -1206,10 +1206,10 @@ void AddTimeData(const CNetAddr& ip, int64 nTime)
                 if (!fMatch)
                 {
                     fDone = true;
-                    string strMessage = _("Warning: Please check that your computer's date and time are correct.  If your clock is wrong Booncoin will not work properly.");
+                    string strMessage = _("Warning: Please check that your computer's date and time are correct.  If your clock is wrong Boondollar will not work properly.");
                     strMiscWarning = strMessage;
                     printf("*** %s\n", strMessage.c_str());
-                    uiInterface.ThreadSafeMessageBox(strMessage+" ", string("Booncoin"), CClientUIInterface::OK | CClientUIInterface::ICON_EXCLAMATION);
+                    uiInterface.ThreadSafeMessageBox(strMessage+" ", string("Boondollar"), CClientUIInterface::OK | CClientUIInterface::ICON_EXCLAMATION);
                 }
             }
         }

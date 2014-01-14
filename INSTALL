@@ -1,9 +1,9 @@
-Building Booncoin
+Building Boondollar
 
-See doc/readme-qt.rst for instructions on building booncoin-qt,
+See doc/readme-qt.rst for instructions on building boondollar-qt,
 the intended-for-end-users, nice-graphical-interface, reference
-implementation of Booncoin.
+implementation of Boondollar.
 
-See doc/build-*.txt for instructions on building booncoin,
+See doc/build-*.txt for instructions on building boondollar,
 the intended-for-services, no-graphical-interface, reference
-implementation of Booncoin.
+implementation of Boondollar.

@@ -45,9 +45,9 @@ QString BitcoinUnits::description(int unit)
 {
     switch(unit)
     {
-    case BTC: return QString("Booncoin");
-    case mBTC: return QString("Milli-Booncoin (1 / 1,000)");
-    case uBTC: return QString("Micro-Booncoin (1 / 1,000,000)");
+    case BTC: return QString("Boondollar");
+    case mBTC: return QString("Milli-Boondollar (1 / 1,000)");
+    case uBTC: return QString("Micro-Boondollar (1 / 1,000,000)");
     default: return QString("???");
     }
 }
