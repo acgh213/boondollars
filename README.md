@@ -1,2 +1,2 @@
-boondollars
+booncoins
 ===========
