@@ -29,7 +29,7 @@ CTxMemPool mempool;
 unsigned int nTransactionsUpdated = 0;
 
 map<uint256, CBlockIndex*> mapBlockIndex;
-uint256 hashGenesisBlock("0x384b060671f4a93948e9c168216dadb0ca2fbc54aa11c86b0345b6af1c59b2f5");
+uint256 hashGenesisBlock("0xc6f6d282220e8db230c4e6c9a3243a4cc3e5d857500fab2282c67fe78f73a155");
 static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // starting difficulty is 1 / 2^12
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
@@ -2019,7 +2019,7 @@ bool LoadBlockIndex(bool fAllowNew)
 	// vMerkleTree: 5a2e19825b
         
         // Genesis block
-        const char* pszTimestamp = "Justin Beiber "Has Not Been Exonerated, Nor Has He Been Arrested"";
+        const char* pszTimestamp = "Justin Beiber \"Has Not Been Exonerated, Nor Has He Been Arrested\"";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
